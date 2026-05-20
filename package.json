@@ -9,13 +9,14 @@
     "migrate": "dotenv -e .env -- npx prisma migrate deploy",
     "prisma:generate": "dotenv -e .env -- npx prisma generate",
     "cleanup:dev": "npx rimraf dist && npx rimraf node_modules && npm install",
-    "setup:dev": "dotenv -e .env.local -- npm run setdown:dev && npm run cleanup:dev && docker compose --file local-compose.yaml up --detach && sleep 10 && npm run prisma:generate:dev && npm run migrate:dev",
+    "setup:dev": "dotenv -e .env.local -- npm run setdown:dev && npm run cleanup:dev && docker compose --file local-compose.yaml up --detach && npm run prisma:generate:dev && npm run migrate:dev",
     "setdown:dev": "dotenv -e .env.local -- docker compose --file local-compose.yaml down",
     "start:dev": "dotenv -e .env.local -- nodemon ./app/index.ts",
     "migrate:dev": "dotenv -e .env.local -- npx prisma migrate dev",
     "prisma:generate:dev": "dotenv -e .env.local -- npx prisma generate",
     "test:dev": "dotenv -e .env.local -- jest --coverage",
-    "load:test:dev": "dotenv -e .env.local -- docker run --interactive --network=host --tty --rm --volume ${PWD}/__tests__/performance:/tests --workdir /tests grafana/k6 run loadtest.k6.ts"
+    "load:test:dev": "dotenv -e .env.local -- docker run --interactive --network=host --tty --rm --volume ${PWD}/__tests__/performance:/tests --workdir /tests grafana/k6 run performance_test.k6.ts",
+    "sonar:test:dev": "dotenv -e .env.local -- npx @sonar/scan"
   },
   "author": "Lukas Aichbauer <lukas@devopscycle.com> (https://devopscycle.com)",
   "license": "MIT",
@@ -29,10 +30,10 @@
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
+    "@types/k6": "^2.0.0",
     "@types/node": "^22.13.4",
     "dotenv-cli": "^8.0.0",
     "jest": "^30.4.2",
-    "@types/k6": "^2.0.0",
     "k6": "^0.0.0",
     "nodemon": "^3.1.9",
     "prisma": "^6.4.0",

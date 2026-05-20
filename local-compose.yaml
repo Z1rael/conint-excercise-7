@@ -5,3 +5,16 @@ services:
       - "127.0.0.1:5432:5432"
     env_file:
       - .env.local
+
+  sonarqube:
+    image: sonarqube:community # make sure to pin the cersion, never use latest (but use the latest version available and regularly upgrade)
+    ports:
+      - "127.0.0.1:9000:9000" # make sure to not expose port 9000 to 0.0.0.0:9000 by prepend localhost
+    env_file:
+      - .env.local # read envs
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
+

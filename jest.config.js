@@ -11,10 +11,12 @@ module.exports = {
         "<rootDir>/dist/",
         "<rootDir>/node_modules/",
         "<rootDir>/coverage/",
+        "<rootDir>/__tests__/performance/",
     ],
     coveragePathIgnorePatterns: [
         "<rootDir>/dist/",
         "<rootDir>/node_modules/",
         "<rootDir>/coverage/",
+        "<rootDir>/__tests__/performance/",
     ]
 };

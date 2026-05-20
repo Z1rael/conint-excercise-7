@@ -2,8 +2,8 @@ import fastify, { FastifyRequest } from 'fastify';
 import { PrismaClient } from '@prisma/client';
 import { isValidEmail } from './services/isValidEmail';
 
-const prisma = new PrismaClient();
-const server = fastify();
+export const prisma = new PrismaClient();
+export const server = fastify();
 
 const PORT = process.env.PORT || 5000;
 const HOST = process.env.HOST || '127.0.0.1';
