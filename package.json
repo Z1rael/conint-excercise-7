@@ -16,7 +16,9 @@
     "prisma:generate:dev": "dotenv -e .env.local -- npx prisma generate",
     "test:dev": "dotenv -e .env.local -- jest --coverage",
     "load:test:dev": "dotenv -e .env.local -- docker run --interactive --network=host --tty --rm --volume ${PWD}/__tests__/performance:/tests --workdir /tests grafana/k6 run performance_test.k6.ts",
-    "sonar:test:dev": "dotenv -e .env.local -- npx @sonar/scan"
+    "sonar:test:dev": "dotenv -e .env.local -- npx @sonar/scan",
+    "snyk:scan:dev": "dotenv -e .env.local -- npx snyk test"
+
   },
   "author": "Lukas Aichbauer <lukas@devopscycle.com> (https://devopscycle.com)",
   "license": "MIT",
