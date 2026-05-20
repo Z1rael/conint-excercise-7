@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@prisma/client": "^6.4.0",
+    "@sonar/scan": "^4.3.6",
     "fastify": "^5.2.1"
   },
   "devDependencies": {
@@ -37,6 +38,7 @@
     "k6": "^0.0.0",
     "nodemon": "^3.1.9",
     "prisma": "^6.4.0",
+    "snyk": "^1.1304.3",
     "ts-jest": "^29.4.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
